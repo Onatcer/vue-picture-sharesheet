@@ -1,4 +1,8 @@
-#Vue Newsroom Picture Component
+# Vue Newsroom Picture Component
+
+## Options
+- `src` 
+- `alt`
 
 
 ## Commands
