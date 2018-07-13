@@ -7,7 +7,7 @@
 
 ## Commands
 - `npm start` - Starting a Server to run the demos/examples
-- `npm build` - Building the demos/examples in /docs
+- `npm run-script demo` - Building the demos/examples in /docs
 
 ## Commands from the Boilerplate
 - `npm run clean` - Remove `lib/` directory

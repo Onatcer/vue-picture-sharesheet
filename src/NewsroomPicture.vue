@@ -1,17 +1,33 @@
 <template>
   <div class="image-container">
+    <div class="sharesheet-container" @mouseover="hovered = true" @mouseleave="hovered = false">
+
       <picture>
         <img :src=src :alt=alt :height=height :width=width>
       </picture>
+      <transition name="fade">
+        <Sharesheet v-if="hovered" class="sharesheet"></Sharesheet>
+      </transition>
+    </div>
   </div>
 
 </template>
 
 <script>
+  import Sharesheet from './Sharesheet.vue';
+
   export default {
+    components: {
+      Sharesheet
+    },
     model: {
       prop: 'model',
       event: 'change'
+    },
+    data() {
+      return {
+        hovered: false
+      }
     },
     props: {
       src: String,
@@ -36,19 +52,29 @@
 
 <style lang="scss">
 
-  picture {
+  .image-container {
+    display: block;
+  }
+
+  .sharesheet-container {
     display: inline-block;
+    position: relative;
 
     /* HOVER OUT */
     transition: box-shadow .4s ease;
   }
 
-  picture:hover {
+  .sharesheet-container:hover {
     box-shadow: 0 39.275px 70px -14.275px rgba(0, 0, 0, 0.3);
-
     /* HOVER IN */
     transition: box-shadow .15s ease;
   }
 
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .3s;
+  }
+  .fade-enter, .fade-leave-to{
+    opacity: 0;
+  }
 
 </style>
