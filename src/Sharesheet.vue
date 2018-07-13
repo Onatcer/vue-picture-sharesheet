@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="sharesheet">
+  <section class="sharesheet" v-bind:class="{ alert: showAlert }">
     <icon class="icon" name="facebook-square" @click.native="openFacebookWindow" scale="1.3"></icon>
     <icon class="icon" name="twitter" scale="1.3" @click.native="openTwitterWindow"></icon>
     <icon class="icon" name="link" scale="1.2" flip="horizontal" @click.native="copyClipboard"></icon>
@@ -26,7 +26,9 @@
 
     },
     data() {
-      return {}
+      return {
+        showAlert: false
+      }
     },
     methods: {
       openFacebookWindow: function (event) {
@@ -36,9 +38,13 @@
         window.open("https://twitter.com/home?status=" + window.location.href, '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");
       },
       copyClipboard: function (event){
+        let that = this;
         this.$copyText(window.location.href).then(function (e) {
-          alert('Copied');
-          console.log(e)
+          that.showAlert = true;
+          setTimeout(function(){
+            that.showAlert = false;
+          }, 2000);
+
         }, function (e) {
           alert('Can not copy');
           console.log(e)
@@ -73,5 +79,16 @@
     display: flex;
     align-items: center;
     box-sizing: border-box;
+  }
+  .alert::before{
+    content: 'Copied to Clipboard';
+    font-family: Avenir,Helvetica,Arial,sans-serif;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    background-color: rgba(34, 34, 34, 0.95);
+    color: #FFF;
+    position: absolute;
+    left: 10px;
+    top: -50px;
   }
 </style>
