@@ -1,22 +1,11 @@
-# NPM Module Boilerplate
+#Vue Newsroom Picture Component
 
-[![Build Status](https://travis-ci.org/flexdinesh/npm-module-boilerplate.svg?branch=master)](https://travis-ci.org/flexdinesh/npm-module-boilerplate) [![dependencies Status](https://david-dm.org/flexdinesh/npm-module-boilerplate/status.svg)](https://david-dm.org/flexdinesh/npm-module-boilerplate) [![devDependencies Status](https://david-dm.org/flexdinesh/npm-module-boilerplate/dev-status.svg)](https://david-dm.org/flexdinesh/npm-module-boilerplate?type=dev) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-**Start developing your NPM module in seconds** ✨
+## Commands
+- `npm start` - Starting a Server to run the demos/examples
+- `npm build` - Building the demos/examples in /docs
 
-Readymade boilerplate setup with all the best practices to kick start your npm/node module development.
-
-Happy hacking =)
-
-# Features
-
-* **ES6/ESNext** - Write _ES6_ code and _Babel_ will transpile it to ES5 for backwards compatibility
-* **Test** - _Mocha_ with _Istanbul_ coverage
-* **Lint** - Preconfigured _ESlint_ with _Airbnb_ config
-* **CI** - _TravisCI_ configuration setup
-* **Minify** - Built code will be minified for performance
-
-# Commands
+## Commands from the Boilerplate
 - `npm run clean` - Remove `lib/` directory
 - `npm test` - Run tests with linting and coverage results.
 - `npm test:only` - Run tests without linting or coverage.
@@ -27,11 +16,3 @@ Happy hacking =)
 - `npm run cover` - Get coverage report for your code.
 - `npm run build` - Babel will transpile ES6 => ES5 and minify the code.
 - `npm run prepublish` - Hook for npm. Do all the checks before publishing your module.
-
-# Installation
-Just clone this repo and remove `.git` folder.
-
-
-# License
-
-MIT © Dinesh Pandiyan
