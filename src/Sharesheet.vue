@@ -1,9 +1,8 @@
 <template lang="html">
 
   <section class="sharesheet" v-bind:class="{ alert: showAlert }">
-    <icon class="icon" name="facebook-square" @click.native="openFacebookWindow" scale="1.3"></icon>
-    <icon class="icon" name="twitter" scale="1.3" @click.native="openTwitterWindow"></icon>
-    <icon class="icon" name="link" scale="1.2" flip="horizontal" @click.native="copyClipboard"></icon>
+    <icon v-for="icon in icons" class="icon" :name="icon.icon" @click.native="clickHandler(icon.name)"
+          :scale="icon.scale"></icon>
   </section>
 
 </template>
@@ -27,21 +26,51 @@
     },
     data() {
       return {
-        showAlert: false
+        showAlert: false,
+        icons: [
+          {
+            name: "facebook",
+            icon: "facebook-square",
+            scale: 1.3,
+          },
+          {
+            name: "twitter",
+            icon: "twitter",
+            scale: 1.3,
+          },
+          {
+            name: "copy",
+            icon: "link",
+            scale: 1.2,
+          }
+        ]
       }
     },
     methods: {
+      clickHandler: function (name) {
+        switch (name) {
+          case "facebook":
+            this.openFacebookWindow();
+            break;
+          case "twitter":
+            this.openTwitterWindow();
+            break;
+          case "copy":
+            this.copyClipboard();
+            break;
+        }
+      },
       openFacebookWindow: function (event) {
         window.open("https://www.facebook.com/sharer/sharer.php?u=" + decodeURI(window.location.href), '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");
       },
       openTwitterWindow: function (event) {
         window.open("https://twitter.com/home?status=" + window.location.href, '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");
       },
-      copyClipboard: function (event){
+      copyClipboard: function (event) {
         let that = this;
         this.$copyText(window.location.href).then(function (e) {
           that.showAlert = true;
-          setTimeout(function(){
+          setTimeout(function () {
             that.showAlert = false;
           }, 2000);
 
@@ -80,9 +109,10 @@
     align-items: center;
     box-sizing: border-box;
   }
-  .alert::before{
+
+  .alert::before {
     content: 'Copied to Clipboard';
-    font-family: Avenir,Helvetica,Arial,sans-serif;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
     padding: 10px 15px;
     font-size: 0.9em;
     background-color: rgba(34, 34, 34, 0.95);
