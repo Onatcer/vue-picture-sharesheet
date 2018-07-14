@@ -1,7 +1,7 @@
 <template lang="html">
 
   <section class="sharesheet" v-bind:class="{ alert: showAlert }">
-    <icon v-for="icon in icons" class="icon" :name="icon.icon" @click.native="clickHandler(icon.name)"
+    <icon v-for="icon in icons" class="icon" :name="icon.icon" @click.native="clickHandler(icon.name)" :flip="icon.flip"
           :scale="icon.scale"></icon>
   </section>
 
@@ -42,6 +42,12 @@
             name: "copy",
             icon: "link",
             scale: 1.2,
+            flip: "horizontal"
+          },
+          {
+            name: "download",
+            icon: "arrow-circle-down",
+            scale: 1.3
           }
         ]
       }
@@ -57,6 +63,9 @@
             break;
           case "copy":
             this.copyClipboard();
+            break;
+          case "download":
+            this.$emit('downloadImage');
             break;
         }
       },

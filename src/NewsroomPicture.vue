@@ -6,7 +6,7 @@
         <img :src=src :alt=alt :height=height :width=width>
       </picture>
       <transition name="fade">
-        <Sharesheet v-if="hovered" class="sharesheet"></Sharesheet>
+        <Sharesheet v-if="hovered" class="sharesheet" @downloadImage="download"></Sharesheet>
       </transition>
     </div>
   </div>
@@ -40,7 +40,15 @@
       }
     },
     methods: {
-      getDateType() {
+      download() {
+        let link = document.createElement('a');
+        link.setAttribute('href', this.src);
+        link.setAttribute('download', 'Filename.jpg');
+        link.setAttribute('target', '_blank');
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       }
     },
     watch: {
