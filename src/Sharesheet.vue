@@ -85,10 +85,18 @@
 </script>
 
 <style scoped lang="scss">
+  @keyframes fadein {
+    0%   {opacity: 0; position: relative; left: -5px;}
+    100% {opacity: 1; position: relative; left: 0px;}
+  }
+
   .icon {
     color: #FFF;
     margin-right: 17px;
     opacity: 0.95;
+    animation-name: fadein;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
   }
 
   .icon:hover {
@@ -121,4 +129,12 @@
     left: 10px;
     top: -50px;
   }
+
+  @for $i from 1 through 10 {
+    .icon:nth-of-type(#{$i}) {
+      animation-delay: #{$i*100}ms;
+    }
+  }
+
+
 </style>
