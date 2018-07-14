@@ -40,15 +40,39 @@
       }
     },
     methods: {
+      toDataURL(src, callback, outputFormat) {
+        var img = new Image();
+        img.crossOrigin = 'Anonymous';
+        img.onload = function () {
+          var canvas = document.createElement('CANVAS');
+          var ctx = canvas.getContext('2d');
+          var dataURL;
+          canvas.height = this.naturalHeight;
+          canvas.width = this.naturalWidth;
+          ctx.drawImage(this, 0, 0);
+          dataURL = canvas.toDataURL(outputFormat);
+          callback(dataURL);
+        };
+        img.src = src;
+        if (img.complete || img.complete === undefined) {
+          img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+          img.src = src;
+        }
+      },
       download() {
         let link = document.createElement('a');
-        link.setAttribute('href', this.src);
-        link.setAttribute('download', 'Filename.jpg');
-        link.setAttribute('target', '_blank');
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        this.toDataURL(
+          this.src,
+          function(dataUrl) {
+            link.setAttribute('href', dataUrl);
+            link.setAttribute('download', 'download.jpg');
+            link.setAttribute('target', '_blank');
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }
+        );
       }
     },
     watch: {
@@ -81,7 +105,8 @@
   .fade-enter-active, .fade-leave-active {
     transition: opacity .3s;
   }
-  .fade-enter, .fade-leave-to{
+
+  .fade-enter, .fade-leave-to {
     opacity: 0;
   }
 
