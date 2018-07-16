@@ -1,6 +1,6 @@
 <template>
   <div class="image-container">
-    <div class="sharesheet-container" @mouseover="hovered = true" @mouseleave="hovered = false">
+    <div class="sharesheet-container" @mouseover="hovered = true" @mouseleave="hovered = false" :class="{ shadow: showSharesheet }">
 
       <picture>
         <img
@@ -15,7 +15,7 @@
       </picture>
       <transition name="fade">
         <Sharesheet
-          v-if="hovered"
+          v-if="showSharesheet"
           class="sharesheet"
           :sheetcolor=sheetcolor
           :iconcolor=iconcolor
@@ -59,11 +59,12 @@
       iconcolor: String,
       position: String,
       size: String,
-      sharemessage: String
-
+      sharemessage: String,
+      fixed: Boolean
     },
     computed: {
-      classObject() {
+      showSharesheet: function () {
+        return (this.fixed) ? true : this.hovered;
       }
     },
     methods: {
@@ -113,14 +114,18 @@
 
   .image-container {
     display: block;
+    max-width: 100%;
   }
 
   .sharesheet-container {
     display: inline-block;
     position: relative;
-
     /* HOVER OUT */
     transition: box-shadow .4s ease;
+    max-width: 100%;
+  }
+  picture, img{
+    max-width: 100%;
   }
 
   .sharesheet-container:hover {
@@ -137,4 +142,7 @@
     opacity: 0;
   }
 
+  .shadow{
+    box-shadow: 0 39.275px 70px -14.275px rgba(0, 0, 0, 0.3)
+  }
 </style>
