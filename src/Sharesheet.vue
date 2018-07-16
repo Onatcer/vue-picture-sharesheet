@@ -90,12 +90,12 @@
       },
       openFacebookWindow: function (event) {
         let url = "https://www.facebook.com/sharer/sharer.php?u=" + decodeURI(window.location.href) +
-          ((this.sharemessage.length !== 0) ? "&quote=" + this.sharemessage : "");
+          ((this.sharemessage) ? "&quote=" + this.sharemessage : "");
         window.open(url, '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");
       },
       openTwitterWindow: function (event) {
         let url = "https://twitter.com/home?status=" +
-          ((this.sharemessage.length !== 0) ? this.sharemessage : document.title) +
+          ((this.sharemessage) ? this.sharemessage : document.title) +
           " - " +
           window.location.href;
         window.open(url, '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");

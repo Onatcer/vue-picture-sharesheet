@@ -2,6 +2,8 @@
 ![image](https://thumbs.gfycat.com/KindSourHammerkop-size_restricted.gif)
 
 ## Getting Started
+*(Vue CLI Usage recommended)*
+
 Install
 ```shell
 npm install onatcer/vue-picture-sharesheet --save
