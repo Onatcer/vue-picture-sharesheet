@@ -1,5 +1,6 @@
 # Vue Newsroom Picture Component
-<iframe src='https://gfycat.com/ifr/KindSourHammerkop' frameborder='0' scrolling='no' width='1548' height='1080' allowfullscreen></iframe>
+![image](https://thumbs.gfycat.com/KindSourHammerkop-size_restricted.gif)
+
 ## Properties
 ### Native image attributes 🛠
   - `src`: String : URL, Specifies the URL of an image
