@@ -10,8 +10,13 @@
 
 <script lang="js">
   import Vue from 'vue'
-  import 'vue-awesome/icons';
+  import 'vue-awesome/icons/facebook-square'
+  import 'vue-awesome/icons/twitter'
+  import 'vue-awesome/icons/link'
+  import 'vue-awesome/icons/download'
+  
   import Icon from 'vue-awesome/components/Icon'
+
   import VueClipboard from 'vue-clipboard2'
 
   Vue.use(VueClipboard);
