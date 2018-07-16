@@ -1,5 +1,11 @@
-# Vue Newsroom Picture Component
+# Vue Picture Sharesheet Compoenent
 ![image](https://thumbs.gfycat.com/KindSourHammerkop-size_restricted.gif)
+
+## Getting Started
+
+```shell
+npm install onatcer/vue-picture-sharesheet --save
+```
 
 ## Properties
 ### Native image attributes 🛠
@@ -18,12 +24,25 @@
   - `position`: String : bottom | top | left| right, Position of the Sharesheet
   - `size`: String : pixels/%, height/width of the Sharesheet
   - `sharemessage`: String : Will be shared in addition to the link. Per Default Website Title. In Facebook Share Dialog as Quote.
-  - `fixed`: String : Will be shared in addition to the link. Per Default Website Title. In Facebook Share Dialog as Quote.
+  - `fixed`: Boolean : if set Sharesheet is visible all the time
+
+## Examples
+
+Showing the Sharesheet all the time (not only while :hover) and set the background-color of the sharesheet to white and the icon color to black.
+```javascript
+<picture-sharesheet src="https://source.unsplash.com/800x500/?cat" sheetcolor="#FFF" iconcolor="#000" fixed></picture-sharesheet>
+```
+
+Set the position of the sharesheet to top, the height of the Sharesheet to 100px and the message that will be shared via the Social Media Buttons to "YAY!"
+```javascript
+<picture-sharesheet src="https://source.unsplash.com/600x550/?cat" position="top" size="100px" sharemessage="YAY!"></picture-sharesheet>
+```
 
 ## Commands
 - `npm start` - Starting a Server to run the demos/examples
 - `npm run-script demo` - Building the demos/examples in /docs
 
+<!---
 ## Commands from the Boilerplate
 - `npm run clean` - Remove `lib/` directory
 - `npm test` - Run tests with linting and coverage results.
@@ -35,7 +54,7 @@
 - `npm run cover` - Get coverage report for your code.
 - `npm run build` - Babel will transpile ES6 => ES5 and minify the code.
 - `npm run prepublish` - Hook for npm. Do all the checks before publishing your module.
-
+-->
 ## Roadmap
 - [ ] Multiple Image Source (srcset .. )
 - [ ] Mobile optimized
