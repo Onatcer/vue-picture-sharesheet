@@ -1,6 +1,6 @@
 # Vue Newsroom Picture Component
-
-## Options
+<iframe src='https://gfycat.com/ifr/KindSourHammerkop' frameborder='0' scrolling='no' width='1548' height='1080' allowfullscreen></iframe>
+## Properties
 ### Native image attributes 🛠
   - `src`: String : URL, Specifies the URL of an image
   - `alt`: String : text, Specifies an alternate text for an image
@@ -17,6 +17,7 @@
   - `position`: String : bottom | top | left| right, Position of the Sharesheet
   - `size`: String : pixels/%, height/width of the Sharesheet
   - `sharemessage`: String : Will be shared in addition to the link. Per Default Website Title. In Facebook Share Dialog as Quote.
+  - `fixed`: String : Will be shared in addition to the link. Per Default Website Title. In Facebook Share Dialog as Quote.
 
 ## Commands
 - `npm start` - Starting a Server to run the demos/examples
