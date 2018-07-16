@@ -1,6 +1,12 @@
 # Vue Picture Sharesheet Compoenent
 ![image](https://thumbs.gfycat.com/KindSourHammerkop-size_restricted.gif)
 
+vue-picture-sharesheet provides an easy and beautiful sharesheet when hovering over images. 
+Currently supported main features are: 
+* sharing to Twitter/Facebook
+* copying the current URL to the Clipboard
+* Downloading the Image
+
 ## [Demo](https://onatcer.github.io/vue-picture-sharesheet/) 😻
 with cute cats 😻
 (The Download in the Demo will just download random cat images as the image changes with every request)
