@@ -38,5 +38,6 @@
 - [ ] Multiple Image Source (srcset .. )
 - [ ] Mobile optimized
 - [ ] different overlay modes
+- [ ] custom icons
 
 

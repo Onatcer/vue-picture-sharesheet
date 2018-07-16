@@ -2,16 +2,45 @@
 <head>
   <title>vue-newsroom-picture-component </title>
   <style>
+    *{
+      font-family: Avenir,Helvetica,Arial,sans-serif;
+    }
+    #app{
+      text-align: center;
+    }
     .test{
-      margin-top: 150px;
+      margin: 80px 0;
       display: block;
       text-align: center;
+    }
+    p{
+      color: #777;
+    }
+    h1{
+      font-weight: 100;
+      text-align: center;
+      display: inline-block;
+      margin: 0 auto;
+      position: relative;
+      font-size: 2.3rem;
+      padding-top: 50px;
+    }
+    h1:after{
+      content: "";
+      height: 5px;
+      width: 100%;
+      display: block;
+      margin-top: -3px;
+      border-radius: 10px;
+      background-color: #36d78a;
     }
   </style>
 </head>
 <body>
 <article id="app" class="page">
-  <picture-sharesheet class="test" src="https://i.imgur.com/IskAzqA.jpg" alt="Was alt?" height="500px" sharemessage="YOLO!"></picture-sharesheet>
+  <h1>Vue &lt;<strong>PictureSharesheet</strong>/&gt;</h1>
+  <p>A Vue Picture Sharesheet Component heavily inspired<br> by the Image Sharesheet in Apple's Newsroom</p>
+  <picture-sharesheet class="test" src="https://source.unsplash.com/800x500/?cat" alt="Was alt?" height="500px" sharemessage="YOLO!"></picture-sharesheet>
   <picture-sharesheet class="test" src="https://i.imgur.com/IskAzqA.jpg" alt="Was alt?" height="500px" sheetcolor="#f0f" iconcolor="#0f0" position="left" size="100px"></picture-sharesheet>
 </article>
 
