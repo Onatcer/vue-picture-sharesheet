@@ -3,6 +3,7 @@
   <title>vue-newsroom-picture-component </title>
   <style>
     .test{
+      margin-top: 150px;
       display: block;
       text-align: center;
     }
@@ -10,7 +11,8 @@
 </head>
 <body>
 <article id="app" class="page">
-  <newsroom-picture class="test" src="https://i.imgur.com/IskAzqA.jpg" alt="Was alt?" height="500px"></newsroom-picture>
+  <picture-sharesheet class="test" src="https://i.imgur.com/IskAzqA.jpg" alt="Was alt?" height="500px" sharemessage="YOLO!"></picture-sharesheet>
+  <picture-sharesheet class="test" src="https://i.imgur.com/IskAzqA.jpg" alt="Was alt?" height="500px" sheetcolor="#f0f" iconcolor="#0f0" position="left" size="100px"></picture-sharesheet>
 </article>
 
 <script src="build/app.js"></script>

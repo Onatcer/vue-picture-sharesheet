@@ -3,10 +3,27 @@
     <div class="sharesheet-container" @mouseover="hovered = true" @mouseleave="hovered = false">
 
       <picture>
-        <img :src=src :alt=alt :height=height :width=width>
+        <img
+          :src=src
+          :alt=alt
+          :height=height
+          :width=width
+          :ismap=ismap
+          :longdesc=longdesc
+          :usemap=usemap
+          :crossorigin=crossorigin>
       </picture>
       <transition name="fade">
-        <Sharesheet v-if="hovered" class="sharesheet" @downloadImage="download"></Sharesheet>
+        <Sharesheet
+          v-if="hovered"
+          class="sharesheet"
+          :sheetcolor=sheetcolor
+          :iconcolor=iconcolor
+          :position=position
+          :size=size
+          :sharemessage=sharemessage
+          @downloadImage="download"
+        />
       </transition>
     </div>
   </div>
@@ -34,6 +51,16 @@
       alt: String,
       height: String,
       width: String,
+      ismap: Boolean,
+      longdesc: String,
+      usemap: String,
+      crossorigin: String,
+      sheetcolor: String,
+      iconcolor: String,
+      position: String,
+      size: String,
+      sharemessage: String
+
     },
     computed: {
       classObject() {
@@ -82,7 +109,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   .image-container {
     display: block;

@@ -1,10 +1,10 @@
 import Vue from 'vue';
-import NewsroomPicture from '../src/NewsroomPicture.vue';
+import PictureSharesheet from '../src/PictureSharesheet.vue';
 
 new Vue({
   el: '#app',
 
   components: {
-    NewsroomPicture,
+    PictureSharesheet,
   },
 });

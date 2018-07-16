@@ -1,7 +1,8 @@
 <template lang="html">
 
-  <section class="sharesheet" v-bind:class="{ alert: showAlert }">
-    <icon v-for="icon in icons" class="icon" :name="icon.icon" @click.native="clickHandler(icon.name)" :flip="icon.flip"
+  <section class="sharesheet" v-bind:class="{ alert: showAlert }" :style="[{ 'background-color': sheetcolor }, SharesheetAttriputes]">
+    <icon v-for="icon in icons" class="icon" :name="icon.icon" :style="[{ 'color': iconcolor }, IconsAttributes]"
+          @click.native="clickHandler(icon.name)" :flip="icon.flip"
           :scale="icon.scale"></icon>
   </section>
 
@@ -17,7 +18,20 @@
 
   export default {
     name: 'sharesheet',
-    props: [],
+    props: {
+      sheetcolor: String,
+      iconcolor: String,
+      sharemessage: String,
+      size: {
+        default: "55px",
+        type: String
+      },
+      position: {
+        default: "bottom",
+        type: String
+      },
+    },
+
     components: {
       Icon
     },
@@ -70,10 +84,16 @@
         }
       },
       openFacebookWindow: function (event) {
-        window.open("https://www.facebook.com/sharer/sharer.php?u=" + decodeURI(window.location.href), '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");
+        let url = "https://www.facebook.com/sharer/sharer.php?u=" + decodeURI(window.location.href) +
+          ((this.sharemessage.length !== 0) ? "&quote=" + this.sharemessage : "");
+        window.open(url, '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");
       },
       openTwitterWindow: function (event) {
-        window.open("https://twitter.com/home?status=" + window.location.href, '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");
+        let url = "https://twitter.com/home?status=" +
+          ((this.sharemessage.length !== 0) ? this.sharemessage : document.title) +
+          " - " +
+          window.location.href;
+        window.open(url, '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=200,width=600,height=400");
       },
       copyClipboard: function (event) {
         let that = this;
@@ -89,14 +109,69 @@
         })
       }
     },
-    computed: {}
+    computed: {
+      SharesheetAttriputes() {
+        let width, height, flexDirection, justifyContent, padding;
+
+        if (this.position === 'left' || this.position === 'right') {
+          height = "100%";
+          width = this.size;
+          flexDirection = "column";
+          justifyContent = "center";
+          padding= "30px 0";
+        }
+
+        if (this.position === 'bottom' || this.position === 'top') {
+          height = this.size;
+          width = "100%";
+          flexDirection = "row";
+          justifyContent = "left";
+          padding= "0 30px";
+        }
+
+        return {
+          'width': width,
+          'height': height,
+          'flex-direction': flexDirection,
+          'justify-content': justifyContent,
+          'padding': padding,
+          [this.position]: "0px"
+        }
+      },
+      IconsAttributes() {
+        let marginRight, marginBottom;
+
+        if (this.position === 'left' || this.position === 'right') {
+          marginRight = "0px";
+          marginBottom = "17px";
+
+        }
+
+        if (this.position === 'bottom' || this.position === 'top') {
+          marginRight = "17px";
+          marginBottom = "0px";
+        }
+        return {
+          'margin-right': marginRight,
+          'margin-bottom': marginBottom,
+        }
+      }
+    },
   }
 </script>
 
 <style scoped lang="scss">
   @keyframes fadein {
-    0%   {opacity: 0; position: relative; left: -5px;}
-    100% {opacity: 1; position: relative; left: 0px;}
+    0% {
+      opacity: 0;
+      position: relative;
+      left: -5px;
+    }
+    100% {
+      opacity: 1;
+      position: relative;
+      left: 0px;
+    }
   }
 
   .icon {
@@ -115,16 +190,13 @@
 
   .sharesheet {
     position: absolute;
-    bottom: 0px;
-    left: 0;
-    width: 100%;
-    height: 55px;
     text-align: left;
     background-color: rgba(34, 34, 34, 0.95);
-    padding: 0 30px;
     display: flex;
     align-items: center;
+    justify-content: center;
     box-sizing: border-box;
+    bottom: 0px;
   }
 
   .alert::before {
@@ -136,7 +208,7 @@
     color: #FFF;
     position: absolute;
     left: 10px;
-    top: -50px;
+    bottom: 70px;
   }
 
   @for $i from 1 through 10 {
