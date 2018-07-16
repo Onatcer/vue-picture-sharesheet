@@ -3,6 +3,7 @@
 
 ## [Demo](https://onatcer.github.io/vue-picture-sharesheet/) 😻
 with cute cats 😻
+(The Download in the Demo will just download random cat images as the image changes with every request)
 
 ## Getting Started
 *(Vue CLI Usage recommended)*

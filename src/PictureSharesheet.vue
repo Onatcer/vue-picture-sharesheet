@@ -72,7 +72,7 @@
       toDataURL(src, callback, outputFormat) {
         var img = new Image();
         img.crossOrigin = 'Anonymous';
-        img.onloadend = function () {
+        img.onload = function () {
           var canvas = document.createElement('CANVAS');
           var ctx = canvas.getContext('2d');
           var dataURL;
@@ -100,7 +100,7 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-          }
+          }, 'image/jpeg'
         );
       }
     },
