@@ -10,7 +10,7 @@ with cute cats 😻
 
 Install
 ```shell
-npm install onatcer/vue-picture-sharesheet --save
+npm install vue-picture-sharesheet --save
 ```
 
 Import locally
