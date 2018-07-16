@@ -72,7 +72,7 @@
       toDataURL(src, callback, outputFormat) {
         var img = new Image();
         img.crossOrigin = 'Anonymous';
-        img.onload = function () {
+        img.onloadend = function () {
           var canvas = document.createElement('CANVAS');
           var ctx = canvas.getContext('2d');
           var dataURL;
