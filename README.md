@@ -7,6 +7,16 @@
 npm install onatcer/vue-picture-sharesheet --save
 ```
 
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  components: {
+    PictureSharesheet
+  }
+}
+
 ## Properties
 ### Native image attributes 🛠
   - `src`: String : URL, Specifies the URL of an image
@@ -30,12 +40,12 @@ npm install onatcer/vue-picture-sharesheet --save
 
 Showing the Sharesheet all the time (not only while :hover) and set the background-color of the sharesheet to white and the icon color to black.
 ```javascript
-<picture-sharesheet src="https://source.unsplash.com/800x500/?cat" sheetcolor="#FFF" iconcolor="#000" fixed></picture-sharesheet>
+<picture-sharesheet src="https://source.unsplash.com/800x500/?cat" sheetcolor="#FFF" iconcolor="#000" fixed/>
 ```
 
 Set the position of the sharesheet to top, the height of the Sharesheet to 100px and the message that will be shared via the Social Media Buttons to "YAY!"
 ```javascript
-<picture-sharesheet src="https://source.unsplash.com/600x550/?cat" position="top" size="100px" sharemessage="YAY!"></picture-sharesheet>
+<picture-sharesheet src="https://source.unsplash.com/600x550/?cat" position="top" size="100px" sharemessage="YAY!"/>
 ```
 
 ## Commands

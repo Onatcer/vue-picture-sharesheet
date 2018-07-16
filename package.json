@@ -1,7 +1,7 @@
 {
-  "name": "vue-newsroom-picture-component",
-  "version": "1.0.0",
-  "description": "A clone of the Apple Newsroom Picture Element as a Vue Component",
+  "name": "vue-picture-sharesheet",
+  "version": "0.1.0",
+  "description": "A Vue Picture Sharesheet Component heavily inspired by the Image Sharesheet in Apple's Newsroom",
   "main": "src/NewsroomPicture.vue",
   "scripts": {
     "clean": "rimraf lib",

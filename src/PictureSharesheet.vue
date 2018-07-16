@@ -34,6 +34,7 @@
   import Sharesheet from './Sharesheet.vue';
 
   export default {
+    name: "vue-picture-sharesheet",
     components: {
       Sharesheet
     },
