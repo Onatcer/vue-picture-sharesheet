@@ -13,8 +13,8 @@
   import 'vue-awesome/icons/facebook-square'
   import 'vue-awesome/icons/twitter'
   import 'vue-awesome/icons/link'
-  import 'vue-awesome/icons/download'
-  
+  import 'vue-awesome/icons/arrow-circle-down'
+
   import Icon from 'vue-awesome/components/Icon'
 
   import VueClipboard from 'vue-clipboard2'

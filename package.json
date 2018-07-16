@@ -1,6 +1,6 @@
 {
   "name": "vue-picture-sharesheet",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A Vue Picture Sharesheet Component heavily inspired by the Image Sharesheet in Apple's Newsroom",
   "main": "src/PictureSharesheet.vue",
   "scripts": {

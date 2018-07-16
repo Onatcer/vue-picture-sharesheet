@@ -2,20 +2,30 @@
 ![image](https://thumbs.gfycat.com/KindSourHammerkop-size_restricted.gif)
 
 ## Getting Started
-
+Install
 ```shell
 npm install onatcer/vue-picture-sharesheet --save
 ```
 
+Import locally
+```javascript
+import PictureSharesheet  from 'vue-picture-sharesheet';
+
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  },
   components: {
     PictureSharesheet
   }
 }
+```
+
+OR import globally (f.e. in the Main.js)
+```javascript
+import PictureSharesheet from 'vue-picture-sharesheet'
+Vue.component('picture-sharesheet',PictureSharesheet);
+```
+
+
 
 ## Properties
 ### Native image attributes 🛠
