@@ -27,6 +27,7 @@
       sheetcolor: String,
       iconcolor: String,
       sharemessage: String,
+      link: String,
       size: {
         default: "55px",
         type: String
@@ -102,7 +103,7 @@
       },
       copyClipboard: function (event) {
         let that = this;
-        this.$copyText(window.location.href).then(function (e) {
+        this.$copyText(this.link).then(function (e) {
           that.showAlert = true;
           setTimeout(function () {
             that.showAlert = false;
