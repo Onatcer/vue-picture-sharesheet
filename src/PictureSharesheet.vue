@@ -22,6 +22,7 @@
           :position=position
           :size=size
           :sharemessage=sharemessage
+          :link=src
           @downloadImage="download"
         />
       </transition>
