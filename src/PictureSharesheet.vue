@@ -90,11 +90,12 @@
       },
       download() {
         let link = document.createElement('a');
+        let filename = this.alt || 'download';
         this.toDataURL(
           this.src,
           function(dataUrl) {
             link.setAttribute('href', dataUrl);
-            link.setAttribute('download', 'download.jpg');
+            link.setAttribute('download', `${filename}.jpg`);
             link.setAttribute('target', '_blank');
             link.style.display = 'none';
             document.body.appendChild(link);
